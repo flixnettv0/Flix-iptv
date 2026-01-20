@@ -1,0 +1,19 @@
+name: مساعد برمجي مخصص
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # يسمح بالتشغيل اليدوي
+
+jobs:
+  run-commands:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: تنفيذ أوامر shell
+      run: |
+        echo "مرحباً! هذا مساعد برمجي"
+        ls -la
+        # أي أوامر أخرى تريدها
