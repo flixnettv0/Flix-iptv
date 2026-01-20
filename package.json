@@ -1,0 +1,21 @@
+{
+  "name": "flix-iptv",
+  "version": "1.0.0",
+  "description": "Flix-IPTV with integrated payment system",
+  "scripts": {
+    "dev": "wrangler pages dev ./public",
+    "deploy": "wrangler pages publish ./public",
+    "kv:setup": "wrangler kv:namespace create",
+    "secrets:set": "wrangler secret put"
+  },
+  "dependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "itty-router": "^4.0.25"
+  },
+  "devDependencies": {
+    "wrangler": "^3.21.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

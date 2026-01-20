@@ -1,0 +1,27 @@
+name = "flix-iptv"
+compatibility_date = "2024-01-20"
+main = "./workers/payment-processor.js"
+pages_build_output_dir = "./public"
+
+[env.production]
+name = "flix-iptv-production"
+route = "https://flix-iptv.pages.dev/*"
+kv_namespaces = [
+  { binding = "PAYMENTS_KV", id = "PAYMENTS_KV_ID" },
+  { binding = "USER_DATA", id = "USER_DATA_ID" },
+  { binding = "SESSIONS_KV", id = "SESSIONS_KV_ID" }
+]
+
+[env.development]
+name = "flix-iptv-dev"
+kv_namespaces = [
+  { binding = "PAYMENTS_KV", preview_id = "PAYMENTS_KV_PREVIEW_ID" },
+  { binding = "USER_DATA", preview_id = "USER_DATA_PREVIEW_ID" },
+  { binding = "SESSIONS_KV", preview_id = "SESSIONS_KV_PREVIEW_ID" }
+]
+
+[vars]
+INVOICE_CURRENCY = "USD"
+BASE_URL = "https://flix-iptv.pages.dev"
+
+# سوف يتم إضافة SECRET_API_KEY, PUBLIC_KEY, IPN_PIN كـ Secrets عبر أمر wrangler secret put
